@@ -1,12 +1,16 @@
-## Architecture Playground
+## Dagger with dynamic args passing to ViewModel
 
-This repo contains various samples of Android App Architecture based on Clean Arch + MVVM (using Android Arch Components).
-Switch the branch to see how these samples are implemented. Master branch does not implement working App because of lack of DI.
-Also, README.md changes upon branch switching, describing each approach in deep details.
+DaggerAndroid does not allow to pass dynamic args to @Inject ctors of classes
+that will be injected with it. Thus, in *dagger* sample subcomponents were instantiated
+manually and *Fragments* were injected explicitly in *onAttach()* method.
 
-master - models, layers, screens, no di (not working App)
-manual - manual di, dependencies are provided explicitly, no scoping (objects are not reused)
-dagger - dagger di with scoping
-sber - Sberbank's SuperApp architecture with separated features (dagger components and feature holders)
+If we allow passing dynamic args to *ViewModel*, we can make use the power of DaggerAndroid
+and inject *ViewModel* implicitly into *Fragment*. We can even get rid of code duplication
+for *ViewModelFactory* that also get instantiated each time the *Fragment* recreates,
+and have one single and generic *ViewModelFactory* able to provide some *Fragment* with an
+instance of *ViewModel* it needs, based on key-value map (multibinding).
 
-// to be continued...
+Multibinding is an early binding, so the map entries should be configured at compile time
+and hence there is no way to configure them using dynamic args.
+
+https://medium.com/chili-labs/android-viewmodel-injection-with-dagger-f0061d3402ff
