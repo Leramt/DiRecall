@@ -1,12 +1,6 @@
-## Architecture Playground
+## Service Locator
 
-This repo contains various samples of Android App Architecture based on Clean Arch + MVVM (using Android Arch Components).
-Switch the branch to see how these samples are implemented. Master branch does not implement working App because of lack of DI.
-Also, README.md changes upon branch switching, describing each approach in deep details.
-
-master - models, layers, screens, no di (not working App)
-manual - manual di, dependencies are provided explicitly, no scoping (objects are not reused)
-dagger - dagger di with scoping
-sber - Sberbank's SuperApp architecture with separated features (dagger components and feature holders)
-
-// to be continued...
+https://medium.com/inloopx/service-locator-pattern-in-android-af3830924c69
+https://medium.com/mobile-app-development-publication/dependency-injection-and-service-locator-4dbe4559a3ba
+https://martinfowler.com/articles/injection.html
+http://guy-murphy.github.io/2014/11/24/service-locator-vs-dependency-injection/
